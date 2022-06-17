@@ -3,6 +3,7 @@
 // https://tasty.co/recipe/the-best-chewy-chocolate-chip-cookies
 // https://www.seriouseats.com/lobster-bisque-recipe
 // https://www.allrecipes.com/recipe/8814/homemade-chicken-soup/
+// https://www.onceuponachef.com/recipes/perfect-pound-cake.html
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -16,7 +17,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const _1 = require(".");
 function test() {
     return __awaiter(this, void 0, void 0, function* () {
-        const url = "https://tasty.co/recipe/the-best-chewy-chocolate-chip-cookies";
+        const url = "https://www.onceuponachef.com/recipes/perfect-pound-cake.html";
         const result = yield (0, _1.parseURL)(url);
         console.log(result);
     });

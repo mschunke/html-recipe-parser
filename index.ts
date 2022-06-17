@@ -7,12 +7,12 @@ async function downloadHTML(url: string): Promise<string> {
   return response.text();
 }
 
-async function parseHTML(html: string): Promise<IRecipe> {
+async function parseHTML(html: string): Promise<IRecipe | string> {
   const recipe = parseRecipe(html);
   return recipe;
 }
 
-async function parseURL(url: string): Promise<IRecipe> {
+async function parseURL(url: string): Promise<IRecipe | string> {
   const html = await downloadHTML(url);
   const parsedHTML = await parseHTML(html);
   return parsedHTML;
