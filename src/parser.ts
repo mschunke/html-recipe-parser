@@ -9,6 +9,7 @@ import {
   parseInstructions,
   parseVideo,
   parseRecipeToJSON,
+  getNutrition,
 } from "./helpers";
 
 export function parseRecipe(html: string): IRecipe {
@@ -52,6 +53,7 @@ export function parseRecipe(html: string): IRecipe {
     : undefined;
   const yeld = recipeRaw.recipeYield;
   const { videoThumbnail, videoTitle, videoUrl } = parseVideo(recipeRaw.video);
+  const nutrition = getNutrition(recipeRaw.nutrition);
 
   const recipe: IRecipe = {
     name: recipeRaw.name,
@@ -72,6 +74,7 @@ export function parseRecipe(html: string): IRecipe {
     videoThumbnail,
     videoTitle,
     videoUrl,
+    nutrition,
   };
 
   return recipe;

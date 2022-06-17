@@ -1,5 +1,5 @@
 import parseIsoDuration from "parse-iso-duration";
-import { ISchemaRecipe } from "../interfaces";
+import { IRecipe, ISchemaRecipe } from "../interfaces";
 import humanizeDuration from "humanize-duration";
 
 export function parseRecipeToJSON(jsonLD: string): ISchemaRecipe | undefined {
@@ -87,4 +87,11 @@ export function parseVideo(video: ISchemaRecipe["video"]): {
     videoTitle: video.name,
     videoUrl: video.contentUrl || video.embedUrl,
   };
+}
+
+export function getNutrition(
+  nutrition: ISchemaRecipe["nutrition"]
+): IRecipe["nutrition"] | undefined {
+  if (!nutrition) return undefined;
+  return nutrition;
 }

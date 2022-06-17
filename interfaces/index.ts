@@ -33,12 +33,12 @@ export interface ISchemaRecipe {
   keywords?: string;
   author?: string | IESPublisher | IESPublisher[];
   nutrition?: {
-    calories: string;
-    carbohydrateContent: string;
-    fatContent: string;
-    fiberContent: string;
-    proteinContent: string;
-    sugarContent: string;
+    calories?: string;
+    carbohydrateContent?: string;
+    fatContent?: string;
+    fiberContent?: string;
+    proteinContent?: string;
+    sugarContent?: string;
   };
   recipeIngredient?: string[];
   recipeInstructions?: ESHowToStep[];
