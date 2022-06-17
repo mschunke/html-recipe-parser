@@ -1,6 +1,6 @@
 import { IRecipe } from "./interfaces";
 import fetch from "node-fetch";
-import { parseRecipe } from "./src/parser";
+import { parseRecipe } from "./helpers/parser";
 
 async function downloadHTML(url: string): Promise<string> {
   const response = await fetch(url);

@@ -1,5 +1,5 @@
 import parse from "node-html-parser";
-import { IRecipe, ISchemaRecipe } from "../interfaces";
+import { IRecipe } from "../interfaces";
 import { ERRORS } from "./errors";
 import {
   durationToText,

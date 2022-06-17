@@ -1,14 +1,20 @@
 {
   "name": "html-recipe-parser",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Parse recipes from web pages using schema.org/recipe metadata",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "ts-node test.ts"
+    "test": "ts-node test.ts",
+    "publish": "tsc && npm version && npm publish"
   },
-  "author": "",
+  "author": "Murilo Schünke",
+  "homepage": "https://github.com/mschunke/html-recipe-parser",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mschunke/html-recipe-parser.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/humanize-duration": "^3.27.1",
