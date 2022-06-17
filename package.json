@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "test": "ts-node test.ts",
-    "publish": "tsc && npm version && npm publish"
+    "publish": "tsc && npm version patch && npm publish"
   },
   "author": "Murilo Schünke",
   "homepage": "https://github.com/mschunke/html-recipe-parser",
