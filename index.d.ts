@@ -9,6 +9,21 @@ export type Recipe = {
   prepTime?: string;
   cookTime?: string;
   keywords?: string[];
+  yeld?: string;
+  rating?: number;
+  nutrition?: {
+    calories?: string;
+    carbohydrateContent?: string;
+    fatContent?: string;
+    fiberContent?: string;
+    proteinContent?: string;
+    sugarContent?: string;
+  };
+  category?: string[];
+  cuisine?: string[];
+  videoUrl?: string;
+  videoThumbnail?: string;
+  videoTitle?: string;
 };
 export function parseURL(url: string): Promise<Recipe>;
 export function parseHTML(html: string): Promise<Recipe>;
