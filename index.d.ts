@@ -25,5 +25,5 @@ export type Recipe = {
   videoThumbnail?: string;
   videoTitle?: string;
 };
-export function parseURL(url: string): Promise<Recipe>;
-export function parseHTML(html: string): Promise<Recipe>;
+export function parseURL(url: string): Promise<Recipe | string>;
+export function parseHTML(html: string): Promise<Recipe | string>;
