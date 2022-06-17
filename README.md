@@ -1,4 +1,4 @@
-# HTML Recipe Scraper
+# HTML Recipe Parser
 
 A easy to use library to extract recipe information from any URL or HTML file compliant with schema.org's recipe schema. Available at [https://schema.org/recipe](https://schema.org/recipe).
 
