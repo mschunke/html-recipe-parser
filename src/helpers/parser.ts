@@ -9,7 +9,7 @@ import {
   getUrl,
   parseInstructions,
   parseVideo,
-  parseRecipeToJSON,
+  parseJSONListToRecipe,
   getNutrition,
 } from "./helpers";
 
@@ -18,9 +18,11 @@ export function parseRecipe(html: string): IRecipe | string {
     const root = parse(html, {
       lowerCaseTagName: true,
     });
-    const jsonLD = root.querySelector("script[type='application/ld+json']");
-    if (!jsonLD) throw ERRORS.NO_JSON_LD;
-    const recipeRaw = parseRecipeToJSON(jsonLD.rawText);
+    const jsonList = root.querySelectorAll(
+      "script[type='application/ld+json']"
+    );
+    if (!jsonList) throw ERRORS.NO_JSON_LD;
+    const recipeRaw = parseJSONListToRecipe(jsonList);
     if (!recipeRaw) throw ERRORS.PARSING_ERROR;
     const author = getAuthor(recipeRaw.author);
     const datePublished = recipeRaw.datePublished

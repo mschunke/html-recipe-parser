@@ -1,18 +1,32 @@
 import parseIsoDuration from "parse-iso-duration";
 import { IRecipe, ISchemaRecipe } from "../interfaces";
 import humanizeDuration from "humanize-duration";
+import { HTMLElement } from "node-html-parser";
 
-export function parseRecipeToJSON(jsonLD: string): ISchemaRecipe | undefined {
-  if (!jsonLD) return undefined;
+export function parseJSONListToRecipe(
+  jsonList: HTMLElement[]
+): ISchemaRecipe | undefined {
+  if (!jsonList.length) return;
 
-  const json = JSON.parse(jsonLD);
+  const parsedJSONList: any[] = jsonList.map((jsonLD) =>
+    JSON.parse(jsonLD.rawText)
+  );
 
-  if (Array.isArray(json)) {
-    const recipe = json.find((v) => v["@type"].toLowerCase() === "recipe");
-    return recipe as ISchemaRecipe;
-  } else {
-    return json as ISchemaRecipe;
+  let recipe = parsedJSONList.find((v) => {
+    const type = v["@type"];
+    return Array.isArray(type)
+      ? type.some(
+          (item) => typeof item === "string" && item.toLowerCase() === "recipe"
+        )
+      : typeof type === "string" && type.toLowerCase() === "recipe";
+  });
+
+  // Fallback to the first parsed JSON Object
+  if (!recipe && parsedJSONList.length > 0) {
+    recipe = parsedJSONList[0];
   }
+
+  return recipe as ISchemaRecipe | undefined;
 }
 
 export function getAuthor(author: ISchemaRecipe["author"]): string | undefined {
