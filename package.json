@@ -1,6 +1,6 @@
 {
   "name": "html-recipe-parser",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Parse recipes from web pages using schema.org/recipe metadata",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
